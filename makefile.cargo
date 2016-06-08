@@ -6,6 +6,10 @@ CXX ?= g++
 AR ?= ar
 endif
 
+ifneq (,$(CCACHE))
+CXX := $(CCACHE) $(CXX)
+endif
+
 GLSLANG_CPP_SRC = \
 	src/glslang-c.cpp \
 	src/compiler/translator/glslang_tab.cpp \
